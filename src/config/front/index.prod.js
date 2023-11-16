@@ -1,3 +1,6 @@
+
+
+
 export default {
-  baseUrl: "https://gestionnaire-contacts-nextjs-2.vercel.app/"
+  baseUrl: "https://jewelryfathe.vercel.app/"
 }
