@@ -19,7 +19,7 @@ const cartSlice = createSlice({
     addToCart: (state, action :PayloadAction<ItemCart>) => {
       const itemInCart = state.cart.find((item:ItemCart)=>item.product?._id===action.payload.product?._id)//find((item) => item. === action.payload.id);
       const index = state.cart.findIndex((item:ItemCart) => item.product?._id===action.payload.product?._id);
-      console.log(action.payload.quantity)
+      //console.log(action.payload.quantity)
       if (itemInCart) {
         state.cart.splice(index, 1,{...action.payload,quantity:itemInCart?.quantity+action.payload.quantity});
       } else {
@@ -47,7 +47,7 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action:PayloadAction<IndexItem>) => {
-      console.log('payload',action.payload)
+      //console.log('payload',action.payload)
         const newCart = state.cart.filter((item) => item.product?._id !== action.payload._id);
         state.cart =newCart;
     },

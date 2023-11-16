@@ -39,8 +39,8 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
     } = useSubcategories();
     const defaultActiveKey: Array<string> = ['1'/*, '2', '3', '4'*/]
     const onChange = (e: CheckboxChangeEvent, header: string) => {
-        console.log(`checked = ${e.target.checked}`,);
-        console.log(header)
+        //console.log(`checked = ${e.target.checked}`,);
+        //console.log(header)
         const checked = e.target.checked
         const value = e.target.value;
         if (header == 'public') {
@@ -55,7 +55,7 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
                 setPublicv((state) => [...state, { value, checked }]);
             }
         }
-        console.log(publicv)
+        //console.log(publicv)
     };
     function getItem({ item, key }: { key: number, item: Subcategory }) {
 

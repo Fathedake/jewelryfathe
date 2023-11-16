@@ -12,7 +12,7 @@ import { ptComponents } from "@/lib/sanity/sanity";
 import Link from "next/link";
 import LineAddWrapper from "@/components/basket/LineAddWrapper";
 export default async function PageProduct({ params }: { params: { category_slug: string, slug_product: string, } }) {
- // console.log(params)
+ // //console.log(params)
   const query0 = groq`*[_type == "product" && slug.current==$slug ]{
     _id,
     name,

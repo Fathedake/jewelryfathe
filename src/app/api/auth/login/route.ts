@@ -11,16 +11,16 @@ export async function POST(req: Request,) {
     const user = await readClient.fetch(
       `*[_type == "user" && email == '${email}'][0]`,
     )
-    console.log('user', user)
+    //console.log('user', user)
     if (user) {
-      console.log(password, user.password)
+      //console.log(password, user.password)
       const passwordIsValid = bcrypt.compareSync(
         password,
         user.password
       );
        
       if (passwordIsValid) {
-        console.log("userrrrrrrrrr",user)
+        //console.log("userrrrrrrrrr",user)
        const  {_id,username,firstname,lastname,email}=user
         return Response.json({ msg: `Succès de connexion`, status: 200, user:{_id,username,firstname,lastname,email},success:true })
 

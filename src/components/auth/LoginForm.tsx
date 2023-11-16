@@ -23,13 +23,13 @@ function LoginForm({drawer=true}:{drawer?:boolean}) {
     try {
       const action = await dispatch(login({ email, password }));
        //dispatch(setToken(action.payload?.accessToken))
-       console.log('dispactch...............',action.payload)
+       //console.log('dispactch...............',action.payload)
       if (action.payload?.success) {
-      //  console.log(token)
+      //  //console.log(token)
         //router.push('/home');
         router.refresh()
       } else {
-        console.log('action', action)
+        //console.log('action', action)
         if (action.payload?.status == 404) {
           setError("Vos identifiants sont incorrects. Veuillez réessayer.");
         }else if(action.payload?.status == 401){

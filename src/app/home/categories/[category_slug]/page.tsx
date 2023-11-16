@@ -46,7 +46,7 @@ export default async function PageCategory({ params }: { params: { category_slug
   const category = await readClient.fetch(queryCat1, { slug: params.category_slug });
 
   //const { data: categoryData, isLoading: isLoadingCat, error: errorCat } = useSWR(['/queryCatCurrent'], async () => await readClient.fetch(queryCat, { slug: params.category_slug }), /*{ refreshInterval: 3000 }*/);
-  // console.log(response1)
+  // //console.log(response1)
   //const category = categoryData;
   const products: Array<ProductI> = await readClient.fetch(queryProdCat1, { category_name: category.title });
   //const { data: productsData, isLoading: isLoadingProds, error: errorProds } = useSWR(['/queryProdsCat'], async () => await readClient.fetch(queryProdCat, { category_name: categoryData.title }), /*{ refreshInterval: 3000 }*/);
@@ -57,12 +57,12 @@ export default async function PageCategory({ params }: { params: { category_slug
   // const subcategories: Array<Subcategory> = await readClient.fetch(querySubcat);
 
   //setSubData(subcategories)
-  // console.log(subcategories)
+  // //console.log(subcategories)
   // let initFilters: Array<Subcategory> = [];
 
 
-  //console.log(products)
-  // console.log(subcategories)
+  ////console.log(products)
+  // //console.log(subcategories)
   if (category) {
     // setSubData((state)=>subcategories)
     //  const tmp=subcategories
@@ -142,7 +142,7 @@ export default async function PageCategory({ params }: { params: { category_slug
    </>
   }*/
   /*else if(errorCat || errorProds){
-   console.log(errorCat,errorProds)
+   //console.log(errorCat,errorProds)
    return <>
    Erreur de chargement
    </>

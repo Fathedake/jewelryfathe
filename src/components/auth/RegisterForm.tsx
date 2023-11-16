@@ -28,7 +28,7 @@ function RegisterForm() {
             firstname: firstname,
             username: username
         }).then((response) => {
-            console.log("registor", response);
+            //console.log("registor", response);
             if (response.data.status == 400) {
                 setError("Cet email est déjà associé à un compte")
             } else if (response.data.status == 200) {
@@ -42,14 +42,14 @@ function RegisterForm() {
 
         })
             .catch((error) => {
-                // console.log("error register",error);
+                // //console.log("error register",error);
 
                 setLoading(false)
                 setError("Votre inscription a échoué. Veuillez réessayer")
             });
     }
     const onFinish = (values: any) => {
-        console.log('values:', values);
+        //console.log('values:', values);
         if (password == confirmPassword) {
             setErrorCPW("")
             register();
@@ -61,7 +61,7 @@ function RegisterForm() {
     };
 
     const onFinishFailed = (errorInfo: any) => {
-        console.log('Failed:', errorInfo);
+        //console.log('Failed:', errorInfo);
     };
 
     return (

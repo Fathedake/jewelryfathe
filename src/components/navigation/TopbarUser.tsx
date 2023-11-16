@@ -16,7 +16,7 @@ export default function TopbarUser() {
     const cart = useAppSelector((state) => state.cart.cart)
     const getTotalQuantity = () => {
        let total=0;
-       //console.log(cart.length,"caert.lenght")
+       ////console.log(cart.length,"caert.lenght")
        if(cart)
        cart.forEach((item)=>{
         total+=item.quantity

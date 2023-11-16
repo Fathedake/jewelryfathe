@@ -7,11 +7,11 @@ export default function NavItem({ href, title, className, dropDownContent = null
     const pathname = usePathname();
     function isAllowedRoute(route:string) {
         // Vérifie si la route commence par /home/vals
-        console.log("pahname",route)
+        //console.log("pahname",route)
         if (route=="/home") {
           return false;
         }
-        console.log("1")
+        //console.log("1")
         // Vérifie si la route contient l'une des valeurs interdites
         const forbiddenValues = ["account", "allProducts", "checkout","companyInfos","posts"];
         for (const forbiddenValue of forbiddenValues) {
@@ -19,14 +19,14 @@ export default function NavItem({ href, title, className, dropDownContent = null
             return false;
           }
         }
-        console.log("2")
+        //console.log("2")
         // Vérifie si la route contient plus de deux '/'
         const slashCount = route.split("/").length;
-        console.log(slashCount,route.split('/'))
+        //console.log(slashCount,route.split('/'))
         if (slashCount-1 != 2) {
           return false;
         }
-        console.log("3")
+        //console.log("3")
         // La route est autorisée
         return true;
       }

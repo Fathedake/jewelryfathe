@@ -59,8 +59,8 @@ export default function PageAllProducts() {
     const [collapse, setCollapse] = useState(false);
     const defaultActiveKey: Array<string> = ['1'/*, '2', '3', '4'*/]
     const onChange = (e: CheckboxChangeEvent, header: string) => {
-        console.log(`checked = ${e.target.checked}`,);
-        console.log(header)
+        //console.log(`checked = ${e.target.checked}`,);
+        //console.log(header)
         const checked = e.target.checked
         const value = e.target.value;
         if (header == 'public') {
@@ -75,7 +75,7 @@ export default function PageAllProducts() {
                 setPublicv((state) => [...state, { value, checked }]);
             }
         }
-        console.log(publicv)
+        //console.log(publicv)
     };
 
     if (categories && subcategories) {

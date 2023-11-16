@@ -83,11 +83,11 @@ export const login = createAsyncThunk(
       password: password,
       email: email,
     }).then((response) => {
-      //console.log("reponse login...........",response)
+      ////console.log("reponse login...........",response)
       return { success: response.data.success, user: response.data.user || initUser, status: response.data.status,}
     })
       .catch((error) => {
-        console.log(error)
+        //console.log(error)
         return { success: false, msg: error.response.err, status: error?.response?.status | 0, user: initUser };
       });
   }

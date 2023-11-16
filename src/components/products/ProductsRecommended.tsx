@@ -33,10 +33,10 @@ export default async function ProductsRecommended() {
     //  const prods = await readClient.fetch(query);
     //let prods:Array<ProductI>=[]
     /*await readClient.fetch(query).then((res)=>{
-        console.log(res)
+        //console.log(res)
         const  prods=res
     }).catch((error)=>{
-       console.log(error)
+       //console.log(error)
       
     })*/
     const prods = await readClient.fetch(query);
