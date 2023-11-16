@@ -46,7 +46,7 @@ export default async function PageProduct({ params }: { params: { category_slug:
             separator: '>',
           },
           {
-            href: "/home/" + params.category_slug,
+            href: "/home/categories/" + params.category_slug,
             title: prod.primary_category.title,
           },
           {
