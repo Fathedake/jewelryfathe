@@ -23,11 +23,12 @@ export default function NavItem({ href, title, className, dropDownContent = null
       }
     if (dropDownContent == null) {
         return <>
-            <div className={`navitem-style w-full h-full inline-flex items-center  justify-center  tracking-widest uppercase font-bold ${className}`} style={{marginLeft:'1px', boxSizing: 'content-box', maxWidth: '250px', minWidth: '200px' }}>
-                <Link href={href} style={{}} className={`${pathname == href ? 'active-navitem  z-150' : 'normal-navitem'}  h-full w-full  inline-flex items-center justify-center py-0 no-underline`}>
+            <Link href={href} style={{}} className={`${pathname == href ? 'active-navitem  z-150' : 'normal-navitem'}  h-full w-full  inline-flex items-center justify-center py-0 no-underline`}>
+                <div className={`navitem-style w-full h-full inline-flex items-center  justify-center  tracking-widest uppercase font-bold ${className}`} style={{marginLeft:'1px', boxSizing: 'content-box', maxWidth: '250px', minWidth: '200px' }}>
+              
                     {title}
+                    </div>
                 </Link>
-            </div>
         </>
     } else if (dropDownContent != null) {
         return <>
