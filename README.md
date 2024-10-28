@@ -2,7 +2,9 @@
 This repository contains the source code of frontend for Fathe's Jewelry, an e-commerce application built for browsing and purchasing jewelry. The app is designed with a user-friendly interface and a modern tech stack.
 
 This project demonstrates the integration of modern tools to deliver a robust online shopping experience.
-[Demo](https://fathejewelrynextjsnew.vercel.app/home)
+
+
+[Demo](https://jewelryfathe.vercel.app/home)
 
 ## Getting Started
 - Create a file named `.env.local` and add data like in `.env.example`
