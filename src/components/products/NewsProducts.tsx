@@ -1,5 +1,4 @@
 
-//"use client"
 import { readClient } from "@/lib/sanity/sanity";
 import { groq } from "next-sanity";
 import { CategoryProd, ProductI } from "./Product";
@@ -30,8 +29,6 @@ const query1 = groq`*[_type == "categoryProd"  && defined(slug)]{
   }
   }`
 
-import { Image } from "antd";
-import { urlFor } from "@/lib/sanity/sanity";
 import CategoryProducts from "./CategoryProducts";
 export default async function NewsProducts() {
     const categories = await readClient.fetch(query1);
@@ -47,7 +44,7 @@ export default async function NewsProducts() {
 
                         {categories.map((cat: CategoryProd, index: number) => {
                             if(cat.products?.length!=0 ){
-                                return <CategoryProducts category={cat} keyI={index} />
+                                return <CategoryProducts category={cat} keyI={index} key={index} />
                             }
                             
 

@@ -3,11 +3,11 @@ import Product from "./Product";
 import { urlFor } from "@/lib/sanity/sanity";
 import { ProductI } from "./Product";
 import Image from "next/image";
-export default  function CategoryProducts({ category ,keyI}: { category: CategoryProd,keyI:number }) {
-    return  <div className="flex flex-col lg:flex-row flex-nowrap w-full gap-1 " key={keyI}>
+export default  function CategoryProducts({ category}: { category: CategoryProd }) {
+    return  <div className="flex flex-col lg:flex-row flex-nowrap w-full gap-1">
             <div className="relative hidden lg:flex  flex-col items-center justify-center  lg:sticky lg:top-64 basis-2/5 lg:shrink-0 lg:grow-0 lg:rouded-xl wrapper-img-1 w-full" style={{maxWidth:'40%'}}>
 
-                <Image
+                {/*<Image
                     src={urlFor(category.images[0]).url()
                     }
                     alt="Image de la catégorie"
@@ -17,6 +17,7 @@ export default  function CategoryProducts({ category ,keyI}: { category: Categor
                     width={300}
                     priority={false}
                 />
+                */}
                 <div className="absolute top-1/2 left-1/2 " style={{transform:'translate(-50%,-50%)'}}>
                    <span className="text-5xl" style={{fontWeight:900,color:`${"#e7e7e7"} `}}>{category.title}</span>  
                 </div>
@@ -42,7 +43,7 @@ export default  function CategoryProducts({ category ,keyI}: { category: Categor
                         if (prod.primary_category.slug == category.slug) {
                             return <div key={prod._id}>
 
-                                <Product prod={prod} />
+                                <Product prod={prod}  />
                             </div>
                         }
 
