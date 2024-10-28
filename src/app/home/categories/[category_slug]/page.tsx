@@ -41,7 +41,7 @@ export default async function PageCategory({ params }: { params: { category_slug
       </div>
       <div className="relative hidden lg:block w-full" style={{width: '100%',}}>
         <div className="" >
-          <Image1
+          {/*<Image1
             src={urlFor(category.images[0]).url()
             }
             style={{ height: '450px', width: '100vw', marginTop: '20px' }}
@@ -51,6 +51,7 @@ export default async function PageCategory({ params }: { params: { category_slug
 
 
           />
+          */}
 
         </div>
       </div>
