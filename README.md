@@ -3,8 +3,9 @@ This is a repository for my Fathe jewelery app created with Next.js and Ant desi
 Fathe jewelery is an e-commerce 
 
 ## Getting Started
-First, create a file named `.env.local` and add data like in `.env.example`
-First, run the development server:
+- Create a file named `.env.local` and add data like in `.env.example`
+
+- Run the development server:
 
 ```bash
 npm run dev
