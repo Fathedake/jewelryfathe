@@ -1,7 +1,9 @@
 ## Description
 This is a repository for my Fathe jewelery app created with Next.js and Ant design react for the front-end and Sanity for the backend app.
 Fathe jewelery is an e-commerce 
+[Demo](https://fathejewelrynextjsnew.vercel.app/home)
 
+![Demo](./public/demo.gif)
 ## Getting Started
 - Create a file named `.env.local` and add data like in `.env.example`
 
