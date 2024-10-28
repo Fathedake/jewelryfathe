@@ -1,12 +1,12 @@
 
 "use client"
-import { Divider, Space, Button } from "antd/lib"
+import {Space, Button } from "antd/lib"
 import LoginForm from "./LoginForm"
 import { useRouter } from "next/navigation"
 import ReduxProvider from "@/store/ReduxProvider"
+
 export default function Login({ style,className,drawer=true }: { style?: object ,className?:string,drawer?:boolean}) {
     const router=useRouter()
-
     return <>
 
         <div className={`flex flex-col bg-white  ${className}`} style={style}>

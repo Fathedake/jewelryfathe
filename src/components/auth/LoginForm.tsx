@@ -1,14 +1,12 @@
 "use client"
 import React from 'react';
-import { Button, Form, Input, Card, Alert,Divider } from 'antd';
+import { Button, Form, Input,Alert,Divider } from 'antd';
 import { login } from '@/store/slices/authSlice';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/store';
 import { UserOutlined,LockOutlined } from '@ant-design/icons';
-import { RootState } from '@/store';
 import { Space } from 'antd/lib';
-import { useAppSelector } from '@/store';
 import Logo from '../utils/Others/Logo';
 import Image from 'next/image';
 function LoginForm({drawer=true}:{drawer?:boolean}) {
@@ -22,14 +20,9 @@ function LoginForm({drawer=true}:{drawer?:boolean}) {
     setLoading(true);
     try {
       const action = await dispatch(login({ email, password }));
-       //dispatch(setToken(action.payload?.accessToken))
-       //console.log('dispactch...............',action.payload)
       if (action.payload?.success) {
-      //  //console.log(token)
-        //router.push('/home');
         router.refresh()
       } else {
-        //console.log('action', action)
         if (action.payload?.status == 404) {
           setError("Vos identifiants sont incorrects. Veuillez réessayer.");
         }else if(action.payload?.status == 401){
@@ -52,7 +45,6 @@ function LoginForm({drawer=true}:{drawer?:boolean}) {
     }
 
   };
-
   const onFinishFailed = (errorInfo: any) => {
    
   };
@@ -94,10 +86,6 @@ function LoginForm({drawer=true}:{drawer?:boolean}) {
         >
           <Input.Password   autoComplete="off" size='large'  prefix={<LockOutlined  />} onChange={(event) => setPassword(event.target.value)}  />
         </Form.Item>
-        {/*<div className='my-2'>
-
-        </div>
-        */}
         <Space  className={"my-2 min-w-full"} direction='vertical'>
           <Button type="primary" block size='large'  htmlType='submit' loading={loading} className="black-1 bg-black-1" style={{ color: 'white' }}>
             Se connecter
@@ -126,7 +114,7 @@ function LoginForm({drawer=true}:{drawer?:boolean}) {
                     src={"/register-1.jpg"}
                     alt="Vercel Logo"
                     className="inline-block width-reponsive-4 h-full"
-                    width={300 /* inutile vue que le bg-img-style a un meilleur style*/}
+                    width={300}
                     height={300}
                     priority={false}
                     quality={100}

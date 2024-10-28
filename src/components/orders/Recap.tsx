@@ -36,13 +36,11 @@ export default function Recap() {
   })
   const router=useRouter();
   const onFinish = (values: any) => {
-   // console.log('values:', values);
-
+  
   };
 
   const onFinishFailed = (errorInfo: any) => {
     router.push('/home/')
-   // console.log('Failed:', errorInfo);
   };
 
   return <>
@@ -50,15 +48,8 @@ export default function Recap() {
       <ConfigProvider
         theme={{
           token: {
-            //colorPrimary: "#e4be88",
-            //colorText:'#e4be88'
-            // borderRadius: data.borderRadius,
           },
           components: {
-            /* Input: {
-               colorPrimary: "#1677ff",
-               algorithm: false
-             },*/
           },
         }}
       >

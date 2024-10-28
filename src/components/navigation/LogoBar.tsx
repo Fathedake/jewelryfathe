@@ -1,6 +1,4 @@
 import { Header } from "antd/es/layout/layout";
-import { Divider } from "antd";
-import Link from "next/link";
 import Logo from "../utils/Others/Logo";
 export default function LogoBar() {
 

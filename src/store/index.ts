@@ -1,11 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 import { persistReducer } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
 import { authReducer } from "./slices/authSlice";
 import { cartReducer } from "./slices/cartSlice";
 import storage from "redux-persist/lib/storage";
-//import thunkMiddleware from 'redux-thunk';
 import {
   FLUSH,
   REHYDRATE,
@@ -15,18 +13,13 @@ import {
   REGISTER,
 } from 'redux-persist'
 
-//import storage from "./customStorage";
-import logger from "redux-logger";
-
 const authPersistConfig = {
   key: "auth",
   storage: storage,
-  //whitelist: ["isAuth", "jid"],
 };
 const cartPersistConfig = {
   key: "cart",
   storage: storage,
-  //whitelist: ["isAuth", "jid"],
 };
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
@@ -41,8 +34,6 @@ export const store = configureStore({
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE,REGISTER],
     },
   }),
- /*  middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware({ serializableCheck: false }).concat(logger),*/
 });
 
 export type RootState = ReturnType<typeof store.getState>;

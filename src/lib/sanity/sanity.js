@@ -2,12 +2,10 @@ import { createClient } from "next-sanity";
 
 import imageUrlBuilder from '@sanity/image-url'
 
-//import { SanityClient } from "next-sanity";
-//import sanityClient from '@sanity/client'
 const options = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: 'production',
-  apiVersion:'v2022-03-07'
+  apiVersion:'v2023-10-07'
 }
 
 export const writeClient = createClient({

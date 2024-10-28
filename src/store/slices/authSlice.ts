@@ -11,8 +11,7 @@ export interface UserI {
 }
 export const  initUser : UserI={_id:'',firstname:'',lastname:'',email:'',username:''}
 export interface IAuthState {
-  isAuth: boolean;
-  //jid: string;
+  isAuth: boolean,
   isConnectedNow: boolean,
   userLoading: boolean,
   user: UserI,
@@ -20,7 +19,6 @@ export interface IAuthState {
 
 const initialState: IAuthState = {
   isAuth: false,
-  // jid: "",
   isConnectedNow: false,
   userLoading: false,
   user: initUser,
@@ -63,17 +61,7 @@ export const authSlice = createSlice({
 
         state.userLoading = false;
 
-      })/*.addCase(logout.fulfilled, (state, action) => {
-        state.userLoading = false;
-        state.isConnectedNow = false;
-      }).addCase(logout.pending, (state, action) => {
-        state.userLoading = true;
-        state.isConnectedNow = false
-        state.user = initUser
       })
-      .addCase(logout.rejected, (state, action) => {
-        state.userLoading = true;
-      })*/
   }
 })
 export const login = createAsyncThunk(
@@ -83,30 +71,14 @@ export const login = createAsyncThunk(
       password: password,
       email: email,
     }).then((response) => {
-      ////console.log("reponse login...........",response)
       return { success: response.data.success, user: response.data.user || initUser, status: response.data.status,}
     })
       .catch((error) => {
-        //console.log(error)
         return { success: false, msg: error.response.err, status: error?.response?.status | 0, user: initUser };
       });
   }
   ,
 )
-
-/*export const logout = createAsyncThunk(
-  'auth/logout',
-  async ()=> {
-    return await logoutApi().then((response) => {
-      return { success: true };
-    })
-      .catch((error) => {
-        return { success: false };
-      });
-  }
-  ,
-)*/
-
 export const { setAuth, setUser, setIsConnectedNow,logOut } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

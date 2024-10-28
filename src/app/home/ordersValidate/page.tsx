@@ -6,7 +6,9 @@ export default function  OrderValiderPage(){
 
     return <>
     
-    Validons le panier
+    <div>
+        <p className="font-bold text-xl">Validons le panier</p>
+    </div>
     <OrderWrapper />
     </>
 }

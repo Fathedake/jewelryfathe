@@ -47,7 +47,7 @@ export default async function NewsProducts() {
 
                         {categories.map((cat: CategoryProd, index: number) => {
                             if(cat.products?.length!=0 ){
-                                return <CategoryProducts category={cat} key={index} />
+                                return <CategoryProducts category={cat} keyI={index} />
                             }
                             
 

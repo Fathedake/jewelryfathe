@@ -6,13 +6,10 @@ import { Collapse, Space, Result, Skeleton, Button } from 'antd';
 import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 import { Checkbox, } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
-import styles from '@/components/utils/styles/category.module.css'
-import { ProductI } from "@/components/products/Product";
 import LoadingProductsBox from "./LoadingProductsBox";
 import { PlusCircleFilled } from "@ant-design/icons";
 import useSWR from "swr";
 import { groq } from "next-sanity";
-import Product from "@/components/products/Product";
 import ListeProducts1 from "@/components/products/ListeProducts1";
 export interface Subcategory {
     _id: string,
@@ -37,25 +34,21 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
         isLoading,
         isError
     } = useSubcategories();
-    const defaultActiveKey: Array<string> = ['1'/*, '2', '3', '4'*/]
+    const defaultActiveKey: Array<string> = ['1']
     const onChange = (e: CheckboxChangeEvent, header: string) => {
-        //console.log(`checked = ${e.target.checked}`,);
-        //console.log(header)
         const checked = e.target.checked
         const value = e.target.value;
         if (header == 'public') {
             const index = publicv.findIndex((item) => item.value === value);
             if (index !== -1) {
-                // If the item already exists in the array, update its checked property
                 const newPublicv = [...publicv];
                 newPublicv[index].checked = checked;
                 setPublicv(newPublicv);
             } else {
-                // If the item does not exist in the array, add it to the array
                 setPublicv((state) => [...state, { value, checked }]);
             }
         }
-        //console.log(publicv)
+       
     };
     function getItem({ item, key }: { key: number, item: Subcategory }) {
 
@@ -63,7 +56,7 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
         return {
             key: key.toString(),
             label: item.title,
-            children: <></> /*<Checkbox onChange={(e) => { onChange(e) }}>Checkbox</Checkbox>*/
+            children: <></>
         }
     }
     function getPublicVal() {
@@ -75,8 +68,7 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
         })
         return retour;
     }
-    // const initPublic:Array<PublicI>=[{value:"homme",checked:false},{value:"femme",checked:false},{value:"mixte",checked:false}]
-    const queryProdCat_public = groq`*[_type == "product" && primary_category->title==$category_name && public in $public]{
+   const queryProdCat_public = groq`*[_type == "product" && primary_category->title==$category_name && public in $public]{
         _id,
     name,
     "slug":slug.current,
@@ -106,19 +98,16 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
     "solding_percent":round(((pricing.retail-pricing.sale)* 100 )/(pricing.retail),0),
     "primary_category":primary_category->{title,images,description}
     }`
-    //const products: Array<ProductI> = await readClient.fetch(queryProdCat, { category_name: category.title });
-    const { data: products, isLoading: isLoadingProds, error: errorProds } = useSWR(getPublicVal().length == 0 ? '/queryProdCat' : '/queryProdCat?public=' + getPublicVal(), async (url) => {
+  const { data: products, isLoading: isLoadingProds, error: errorProds } = useSWR(getPublicVal().length == 0 ? '/queryProdCat' : '/queryProdCat?public=' + getPublicVal(), async (url) => {
         if (url == '/queryProdCat')
             return await readClient.fetch(queryProdCat, { category_name: cat_name, })
         else
             return await readClient.fetch(queryProdCat_public, { category_name: cat_name, public: getPublicVal() })
 
     },
-      /*{ refreshInterval: 3000 }*/);
-    // const products: Array<ProductI> = productsData;
+     );
     if (subcategories) {
-        //subcategories.map((item:Subcategory, key:number) => { itemsElement.push(getItem({ item, key })) })
-        const items: CollapseProps['items'] = [
+         const items: CollapseProps['items'] = [
             {
                 key: '1',
                 label: 'Public',
@@ -152,8 +141,7 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
         ;
         return <>
             <div className="ms-3 p-2">
-                {/* {styles.filters_bar} style={{position:'sticky',top:100,width:300}}  */}
-                <Button color='#e4be88' icon={<PlusCircleFilled className="" style={{ color: '#e4be88' }} color='#e4be88' />} className='' onClick={() => { setCollapse((state) => !state) }}>
+               <Button color='#e4be88' icon={<PlusCircleFilled className="" style={{ color: '#e4be88' }} color='#e4be88' />} className='' onClick={() => { setCollapse((state) => !state) }}>
                     
                 </Button>
                 <Card title="Filtres" className={clsx(
@@ -174,8 +162,6 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
             </div>
             <div className="flex flex-row flex-nowrap itams-start justify-start h-full" >
                 <div className="ms-3 p-2">
-                    {/* {styles.filters_bar} style={{position:'sticky',top:100,width:300}}  */}
-
                     <Card title="Filtres" className="hidden md:inline-block sticky top-64" style={{ minWidth: 280 }} bodyStyle={{ borderColor: '#e4be88' }} headStyle={{ borderColor: '#e4be88' }}  >
                         <Collapse
                             ghost

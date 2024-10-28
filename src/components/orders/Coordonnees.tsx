@@ -9,8 +9,6 @@ import { Form, Input } from "antd"
 export default function Coordeonnees() {
 
     const { order, setOrder } = useContext(OrderContext)
-
-    //console.log("coordonnnes", order)
     return <>
         <div className="mx-3 w-full p-1">
             <div className="inline-flex items-center justify-center text-center" style={{ color: "#e4be88" }}>

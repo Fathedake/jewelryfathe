@@ -1,8 +1,6 @@
 "use client"
-import { Layout, Divider, Space, Skeleton, Button, Drawer, Menu, theme, Avatar, MenuProps } from "antd"
+import { Layout, Button, Drawer, Menu, theme,MenuProps } from "antd"
 import NavItem from "./NavItem";
-import dynamic from "next/dynamic";
-//const NavItem = dynamic(() => import("./NavItem"), { ssr: true,})
 import { CategoryProd } from "../products/Product";
 import { Card } from "antd";
 import DropdownCatBox from "./DropdownCatsBox";
@@ -46,9 +44,6 @@ export function selectedDefaultKey(pathname: string) {
 }
 
 
-
-//const DropdownCatBox = dynamic(() => import("./DropdownCatsBox"), { ssr: true,loading: () => <Skeleton style={{width:'600px',height:'300px'}} />,})
-
 export default function TopbarNav({ categories }: { categories: Array<CategoryProd> }) {
     const router = useRouter();
     const [collapsed, setCollapsed] = useState(false);
@@ -60,8 +55,7 @@ export default function TopbarNav({ categories }: { categories: Array<CategoryPr
     } = theme.useToken();
     const [selectkeys, setSelectkeys] = useState<string[]>(selectedDefaultKey(pathname))
     const [open, setOpen] = useState(false);
-    //isConnectedNow
-    //  const isConnectedNow = useAppSelector((state: RootState) => state.auth.isConnectedNow)
+   
     const items: MenuItem[] = [
         getItem('Accueil', '1', <HomeOutlined />),
         getItem("Les catégories", '2', <AppstoreOutlined />),
@@ -140,22 +134,17 @@ export default function TopbarNav({ categories }: { categories: Array<CategoryPr
                     <NavItem href="/home/categories" title="Les catégories" dropDownContent={<div>
                         <Card className="" title={<div className="text-bold my-2" style={{ fontSize: '19px' }}>Toutes les catégories</div>} style={{ maxWidth: '700px',/*maxHeight:'420px',*/width: '100%' }}>
                             <div className="flex flex-col w-full" >
-                                <DropdownCatBox categories={categories} />
-                                {/*<Space.Compact block>
-                            <DropdownCatBox />
-                            
-                    </Space.Compact>*/}
+                                <DropdownCatBox categories={categories} />     
                             </div>
                         </Card>
                     </div>}></NavItem>
 
                     <NavItem href="/home/allProducts" title="Tous les produits"></NavItem>
-                    {/*<NavItem href="/home/posts" title="Articles"></NavItem>*/}
+    
                     <NavItem href="/home/companyInfos" title="Qui sommes-nous ?"></NavItem>
                     <Button onClick={() => { }} type="primary" className="black-3" icon={<DownloadOutlined />} size={"large"}>
                         Télécharger le catalogue
                     </Button>
-                    {/*navbar-visibility flex flex-row flex-nowrap justify-center items-center*/}
                 </div>
             </Header>
 

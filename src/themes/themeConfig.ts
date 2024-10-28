@@ -1,7 +1,4 @@
-// theme/themeConfig.ts
 import type { ThemeConfig } from 'antd';
-import {Button,Input} from 'antd';
-
 const theme: ThemeConfig = {
   token: {
     fontSize: 16,
@@ -11,13 +8,10 @@ const theme: ThemeConfig = {
   components: {
     Button: {
       colorPrimary: '#001529',
-      //algorithm:true,
     },
     Input: {
       colorPrimary: '#1677ff',
-     // activeBorderColor:'white',
      activeShadow:'0 1px 3px rgba(0, 0, 0, 0.2)',
-      //algorithm:true,
     },
   },
 };

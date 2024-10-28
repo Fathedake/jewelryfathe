@@ -1,17 +1,12 @@
-
-
-import { useAppDispatch } from "@/store"
 import { useAppSelector } from "@/store"
 import { ShoppingOutlined } from "@ant-design/icons"
-import { useState } from "react"
-import BasketItem from "./BasketItem"
 import { Card } from "antd"
 import BasketProduct from "./BasketProduct"
 import { Form, Input, Space, Button } from "antd"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import clsx from 'clsx'
-export default function Basket1({ directionBase="horizontal" }: { directionBase?: "vertical" | "horizontal" }) {
+export default function Basket1({ directionBase = "horizontal" }: { directionBase?: "vertical" | "horizontal" }) {
   const cart = useAppSelector((state) => state.cart.cart)
   const router = useRouter();
   const getTotalPrix = () => {
@@ -27,7 +22,6 @@ export default function Basket1({ directionBase="horizontal" }: { directionBase?
       'flex flex-col lg:flex-row flex-wrap w-full',
       {
         'lg:flex-col': directionBase === "vertical",
-       // 'block': order.payment.mode_payment.value === 1
       },
     )} style={{ padding: '25px', boxSizing: 'border-box' }}>
       <Card bordered={true} className="w-full order-1  shrink-0 grow-0 lg:basis-3/4" title={<div className="flex flex-row flex-wrap  text-center items-center justify-center" style={{ boxSizing: 'border-box' }}>
@@ -64,12 +58,12 @@ export default function Basket1({ directionBase="horizontal" }: { directionBase?
           </Button>
         </div>
         <Link href="/home/ordersValidate" className={clsx(
-      'w-full ',
-      {
-        'hidden': directionBase === "vertical",
-        'inline-block': directionBase === "horizontal",
-      },
-    )} >
+          'w-full ',
+          {
+            'hidden': directionBase === "vertical",
+            'inline-block': directionBase === "horizontal",
+          },
+        )} >
           <Button disabled={getTotalPrix() == 0 ? true : false} size="large" className="black-2 " style={{ height: '50px', borderWidth: '1px', margin: '5px 0px' }} block>
             Valider mon panier
           </Button>

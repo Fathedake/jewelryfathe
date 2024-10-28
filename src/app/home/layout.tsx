@@ -1,9 +1,7 @@
 import TopbarNav from '@/components/navigation/TopbarNav'
 import TopBarUserWrapper from '@/components/navigation/TopBarUserWrapper'
 import LogoBar from '@/components/navigation/LogoBar'
-import ReduxProvider from '@/store/ReduxProvider'
 import NavToTopButton from '@/components/utils/Others/NavToTopButton'
-import { FloatButton } from 'antd'
 import { groq } from 'next-sanity'
 import { readClient } from '@/lib/sanity/sanity'
 import { CategoryProd } from '@/components/products/Product'
@@ -31,7 +29,6 @@ export default async  function HomeLayout({
         <div className='' style={{marginTop:217}}>
           {children}
         </div>
-        {/*<FloatButton.BackTop />*/}
         <NavToTopButton/>
     </div>
 

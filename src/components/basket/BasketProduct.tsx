@@ -1,6 +1,4 @@
 import { ProductI } from "../products/Product";
-
-import Image from "next/image";
 import { Image as Image1 } from "antd";
 import { Space, Button, message } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
@@ -8,13 +6,11 @@ import { urlFor } from "@/lib/sanity/sanity";
 import { incrementQuantity, decrementQuantity, removeItem } from "@/store/slices/cartSlice";
 import Link from "next/link";
 import { useAppSelector } from "@/store";
-import Item from "antd/es/list/Item";
 import { useAppDispatch } from "@/store";
 import { Typography } from "antd";
-import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 import { DeleteOutlined } from "@ant-design/icons";
 import ImgGroupPreview from "../utils/Others/Img-GroupView";
-import {CloseOutlined } from "@ant-design/icons";
+import { CloseOutlined } from "@ant-design/icons";
 const { Text, } = Typography;
 import { Card } from "antd";
 import clsx from 'clsx'
@@ -30,29 +26,15 @@ export default function BasketProduct({ product, quantity, directionBase = "hori
     const dispatch = useAppDispatch()
     async function removeItemFunction() {
         await dispatch(removeItem({ _id: product._id }));
-        /* messageApi.open({
-             type: 'error',
-             content: 'This is an error message',
-           });*/
     }
     return <>
         <Card className="relative" >
             <div className="w-full flex gap-3 h-full flex-col md:flex-row  md:flex-nowrap md:items-center justify-center items-start md:justify-start">
                 <div>
-                    {/*<Image src={urlFor(product.images[0]).url()}
-                        height={125}
-                        width={100}
-                        alt="Image du produit"
-                        style={{ borderRadius: '6px' }}
-                    />
-                    */}
                     <ImgGroupPreview images={product.images}>
                         <Image1
-                            /* height={125}
-                             width={100}*/
-
                             src={urlFor(product.images[0]).url()}
-                            style={{ borderRadius: '6px', height: directionBase == "horizontal" ? "125px" : "75px", width:  directionBase == "horizontal" ? "100px" : "70px"}}
+                            style={{ borderRadius: '6px', height: directionBase == "horizontal" ? "125px" : "75px", width: directionBase == "horizontal" ? "100px" : "70px" }}
                         />
                     </ImgGroupPreview>
 
@@ -78,23 +60,23 @@ export default function BasketProduct({ product, quantity, directionBase = "hori
                         </div>
                     </div>
                     <Space.Compact size="large" className="mt-1 mb-1">
-                        <Button size="middle" icon={ <PlusOutlined  />} onClick={() => { dispatch(incrementQuantity(product)) }}>
-                           
+                        <Button size="middle" icon={<PlusOutlined />} onClick={() => { dispatch(incrementQuantity(product)) }}>
+
                         </Button>
                         <Button size="middle" className="text-center">
                             {quantity}
                         </Button>
-                        <Button size="middle" className="" icon={<MinusOutlined  />} onClick={() => { dispatch(decrementQuantity(product)) }}>
+                        <Button size="middle" className="" icon={<MinusOutlined />} onClick={() => { dispatch(decrementQuantity(product)) }}>
 
                         </Button>
                     </Space.Compact>
                 </div>
-                <Button   onClick={removeItemFunction} className={clsx(
+                <Button onClick={removeItemFunction} className={clsx(
                     'absolute top-[5px] right-[3px]',
                     {
                         'hidden': directionBase == "horizontal",
                         'inline-block': directionBase == "vertical",
-                    },)}  danger  icon={<CloseOutlined style={{fontSize:'15px'}} />} type="text" size={"middle"} />
+                    },)} danger icon={<CloseOutlined style={{ fontSize: '15px' }} />} type="text" size={"middle"} />
 
                 <Button onClick={removeItemFunction} className={clsx(
                     ' ms-auto me-2',

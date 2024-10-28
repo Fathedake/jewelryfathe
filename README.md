@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a repository for my Fathe jewelery app created with Next.js and Ant design react for the front-end and Sanity for the backend app.
+Fathe jewelery is an e-commerce 
 
 ## Getting Started
 

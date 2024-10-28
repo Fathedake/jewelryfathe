@@ -4,7 +4,6 @@
 import { readClient } from "@/lib/sanity/sanity";
 import Card from "antd/es/card/Card"
 import { groq } from "next-sanity";
-//import { Image } from "antd";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/sanity";
 import { PortableText } from '@portabletext/react'
@@ -30,15 +29,6 @@ const query = groq`*[_type == "product"  && defined(pricing.retail) && defined(p
   } | order(solding_percent desc)[0..7]`
 
 export default async function ProductsRecommended() {
-    //  const prods = await readClient.fetch(query);
-    //let prods:Array<ProductI>=[]
-    /*await readClient.fetch(query).then((res)=>{
-        //console.log(res)
-        const  prods=res
-    }).catch((error)=>{
-       //console.log(error)
-      
-    })*/
     const prods = await readClient.fetch(query);
     return <>
         <div className="w-full ">
@@ -58,27 +48,6 @@ export default async function ProductsRecommended() {
 
                         })}
                     </div> : <div></div>}
-                    {/* <div className='my-2' >
-                {JSON.stringify(prods[0].primary_category)}
-              
-                <Image
-                    src={urlFor(prods[0].primary_category.images[0]).url()
-                      }
-                    alt="Image de fond"
-                    className="inline-block"
-                    width={700}
-                    height={700}
-                    quality={100}
-                />
-
-               <div style={{width:'350px'}}>
-               <PortableText
-                    value={prods[12]?.description || null}
-                    components={ptComponents}
-                    
-                />
-               </div>
-            </div>*/}
                 </div>
             </Card>
         </div>
