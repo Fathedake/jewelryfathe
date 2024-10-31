@@ -141,11 +141,11 @@ function FiltersGroup1({ cat_name }: { cat_name: string }) {
         ;
         return <>
             <div className="ms-3 p-2">
-               <Button color='#e4be88' icon={<PlusCircleFilled className="" style={{ color: '#e4be88' }} color='#e4be88' />} className='' onClick={() => { setCollapse((state) => !state) }}>
+               <Button color='#e4be88' className={"inline-block md:hidden m-1"} icon={<PlusCircleFilled  style={{ color: '#e4be88' }} color='#e4be88' />}  onClick={() => { setCollapse((state) => !state) }}>
                     
                 </Button>
                 <Card title="Filtres" className={clsx(
-                    'inline-block md:hidden w-full',
+                    'inline-block md:hidden w-full lg:max-w-56 m-1',
                     {
                         'hidden': collapse === false,
                         'inline-block': collapse === true,

@@ -7,8 +7,10 @@ export default function PageHome() {
     return <>
         <div className='w-full'>
             <Caroussel1 />
-           <ProductsRecommended/>
+            <div className='flex flex-col items-center justify-start gap-0'>
+            <ProductsRecommended/>
             <NewsProducts />
+            </div>
         </div>
     </>
 }

@@ -38,7 +38,7 @@ export default async function ProductsRecommended() {
                     <BoxTitle title="Produits recommandés" />
                 </div>
                 <div className="w-full">
-                    {prods.length != 0 ? <div className="w-full flex md:flex-row flex-wrap justify-center items-center">
+                    {prods.length != 0 ? <div className="w-full flex md:flex-row flex-wrap justify-center items-center gap-4">
 
                         {prods.map((prod: ProductI) => {
                             return <div key={prod._id}>

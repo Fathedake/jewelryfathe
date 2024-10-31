@@ -167,7 +167,7 @@ export default function PageAllProducts() {
                                 if (cat.products?.length != 0) {
                                     return <>
                                         <Divider className="w-full" ></Divider>
-                                        <div className="text-center" style={{ fontWeight: 'bolder', fontSize: '20px', height: '100px' }}>{cat.title}</div>
+                                        <div className="text-center" style={{ fontWeight: 'bolder', fontSize: '20px' }}>{cat.title}</div>
                                         <Divider className="w-full"></Divider>
                                         <div className="flex flex-row flex-wrap  justify-center items-center">
                                             {

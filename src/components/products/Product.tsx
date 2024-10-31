@@ -40,8 +40,8 @@ export default function Product({ prod }: { prod: ProductI }) {
    <ProductContext.Provider value={prod}>
 
     <Link href={"/home/categories/" + prod.primary_category.slug + "/" + prod.slug} >
-            < div className="mx-2 my-2 relative cursor-pointer" style={{ margin: '15px' }}>
-                <div style={{ width: 300, minHeight: 350 }} className="shadow-sm ">
+            < div className="mx-1 my-1 relative cursor-pointer">
+                <div style={{ width: 250, minHeight: 350 }} className="shadow-sm bg-white p-2">
                     {prod.solding_percent == 0 || prod.solding_percent == undefined ? <></> : <Button type="text" className="cursor-default absolute top-0 right-0 mr-2 mt-2 font-bold" style={{ background: '#e4be88', color: 'white' }}>
                         {"- " + prod.solding_percent + '%'}
                     </Button>}
@@ -49,10 +49,10 @@ export default function Product({ prod }: { prod: ProductI }) {
                         <Image
                             src={urlFor(prod.images[0]).url()
                             }
-                            style={{ width: 300, height: 250, }}
+                            style={{ width: 250, height: 250, }}
                             alt="Image du produit"
                             className="inline-block"
-                            width={300}
+                            width={250}
                             height={250}
                             quality={100}
                             priority

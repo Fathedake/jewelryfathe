@@ -34,7 +34,7 @@ export default async function PageCategory({ params }: { params: { category_slug
   const products: Array<ProductI> = await readClient.fetch(queryProdCat1, { category_name: category.title });
   if (category) {
     return <>
-      <div className="">
+      <div className="text-center">
         <h1 className={styles.cat_title}>
           {category.title}
         </h1>

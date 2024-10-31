@@ -1,8 +1,7 @@
 
 import { readClient } from "@/lib/sanity/sanity";
 import { groq } from "next-sanity";
-import { CategoryProd, ProductI } from "./Product";
-import Product from "./Product";
+import { CategoryProd} from "./Product";
 import BoxTitle from "../utils/Others/Box-title-1";
 import Card from "antd/es/card/Card";
 //récupérer les 08 premiers produits ayant les plus haut pourcentage  de promotion
@@ -33,18 +32,18 @@ import CategoryProducts from "./CategoryProducts";
 export default async function NewsProducts() {
     const categories = await readClient.fetch(query1);
     return <>
-        <div className="w-full bg-gray-100">
+        <div>
 
-            <Card className='my-2' bordered={false} style={{}}>
+            <Card className='my-2' bordered={false} >
                 <div className="flex flex-col place-items-center justify-center">
                     <BoxTitle title="Nouveaux produits" />
                 </div>
-                <div className="w-full">
-                    {categories.length != 0 ? <div className="">
+                <div className="lg:p-10 p-5">
+                    {categories.length != 0 ? <div>
 
                         {categories.map((cat: CategoryProd, index: number) => {
                             if(cat.products?.length!=0 ){
-                                return <CategoryProducts category={cat} keyI={index} key={index} />
+                                return <CategoryProducts category={cat} key={index} />
                             }
                             
 
